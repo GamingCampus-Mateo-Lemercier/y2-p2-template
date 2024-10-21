@@ -13,6 +13,14 @@ public:
     Inventory();
     ~Inventory();
 
+    void AddItem( Item* pItem );
+    void RemoveItem( const char* name );
+
+    void PrintItem( const char* name );
+
+protected:
+    [[nodiscard]] std::vector<Item*>::iterator FindItem( const char* name );
+
 protected:
     std::vector<Item*> m_items;
 };
