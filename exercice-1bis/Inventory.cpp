@@ -17,7 +17,7 @@ std::ostream& operator<<( std::ostream& os, const Inventory& inventory )
 
 
 Inventory::Inventory():
-    m_items(),
+    m_items()
 {}
 
 Inventory::~Inventory() = default;
