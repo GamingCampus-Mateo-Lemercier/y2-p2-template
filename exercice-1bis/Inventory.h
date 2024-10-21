@@ -16,6 +16,11 @@ public:
     void AddItem( Item* pItem );
     void RemoveItem( const char* name );
 
+    void SortByName();
+    void SortByNameReverse();
+    void SortByWeight();
+    void SortByWeightReverse();
+
     void PrintItem( const char* name );
 
 protected:

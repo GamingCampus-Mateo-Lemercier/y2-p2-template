@@ -36,6 +36,28 @@ void Inventory::RemoveItem( const char* name )
 
 
 
+void Inventory::SortByName()
+{
+    std::sort( m_items.begin(), m_items.end(), []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->m_name < pItem2->m_name; } );
+}
+
+void Inventory::SortByNameReverse()
+{
+    std::sort( m_items.begin(), m_items.end(), []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->m_name > pItem2->m_name; } );
+}
+
+void Inventory::SortByWeight()
+{
+    std::sort( m_items.begin(), m_items.end(), []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->m_weight < pItem2->m_weight; } );
+}
+
+void Inventory::SortByWeightReverse()
+{
+    std::sort( m_items.begin(), m_items.end(), []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->m_weight > pItem2->m_weight; } );
+}
+
+
+
 void Inventory::PrintItem( const char* name )
 {
     const Item* const pItem = *FindItem( name );
