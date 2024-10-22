@@ -64,6 +64,15 @@ void Inventory::SortByWeightReverse()
 
 
 
+int Inventory::GetNumberOfMatchingItems( const std::function<bool( const Item* pItem )>& filter ) const
+{
+    int result = 0;
+    for ( const Item* const pItem: m_items )
+        if ( filter( pItem ) )
+            result++;
+    return result;
+}
+
 void Inventory::FilterItems( const std::function<bool( const Item* pItem )>& filter )
 {
     for ( Item* const pItem: m_items )
