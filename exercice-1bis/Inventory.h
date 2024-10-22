@@ -37,4 +37,5 @@ protected:
 protected:
     std::vector<Item*> m_items;
     float m_totalWeight;
+    float m_maxWeight;
 };

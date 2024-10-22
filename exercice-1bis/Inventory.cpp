@@ -18,7 +18,8 @@ std::ostream& operator<<( std::ostream& os, const Inventory& inventory )
 
 Inventory::Inventory():
     m_items(),
-    m_totalWeight( 0.0f )
+    m_totalWeight( 0.0f ),
+    m_maxWeight( 100.0f )
 {}
 
 Inventory::~Inventory() = default;
@@ -27,8 +28,13 @@ Inventory::~Inventory() = default;
 
 void Inventory::AddItem( Item* const pItem )
 {
-    m_items.push_back( pItem );
     m_totalWeight += pItem->m_weight;
+    if ( m_totalWeight >= m_maxWeight )
+    {
+        m_totalWeight -= pItem->m_weight;
+        return;
+    }
+    m_items.push_back( pItem );
 }
 
 void Inventory::RemoveItem( const char* const name )
