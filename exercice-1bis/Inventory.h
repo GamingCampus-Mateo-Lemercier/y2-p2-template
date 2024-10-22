@@ -17,10 +17,7 @@ public:
     void AddItem( Item* pItem );
     void RemoveItem( const char* name );
 
-    void SortByName();
-    void SortByNameReverse();
-    void SortByWeight();
-    void SortByWeightReverse();
+    void Sort( const std::function<bool( const Item* pItem1, const Item* pItem2 )>& filter );
 
     [[nodiscard]] int GetNumberOfMatchingItems( const std::function<bool( const Item* pItem )>& filter ) const;
     void FilterItems( const std::function<bool( const Item* pItem )>& filter );

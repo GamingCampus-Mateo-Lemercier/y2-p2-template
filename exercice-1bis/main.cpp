@@ -12,13 +12,13 @@ int main()
     inventory.AddItem( new Item("Diamond Pickaxe", 10.62f) );
     inventory.AddItem( new Item("Netherite Pickaxe", 262.16f) );
     std::cout << "Base " << inventory << std::endl;
-    inventory.SortByName();
+    inventory.Sort( []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->GetName() < pItem2->GetName(); } );
     std::cout << "Sorted by Name " << inventory << std::endl;
-    inventory.SortByNameReverse();
+    inventory.Sort( []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->GetName() > pItem2->GetName(); } );
     std::cout << "Sorted by Name Reversed " << inventory << std::endl;
-    inventory.SortByWeight();
+    inventory.Sort( []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->GetWeight() < pItem2->GetWeight(); } );
     std::cout << "Sorted by Weight " << inventory << std::endl;
-    inventory.SortByWeightReverse();
+    inventory.Sort( []( const Item* const pItem1, const Item* const pItem2 ){ return pItem1->GetWeight() > pItem2->GetWeight(); } );
     std::cout << "Sorted by Weight Reversed " << inventory << std::endl;
     inventory.FilterItems( []( const Item* const pItem ){ return pItem->GetWeight() > 10.0f; } );
     std::cout << "Filtered by Weight above 10kg " << inventory << std::endl;
