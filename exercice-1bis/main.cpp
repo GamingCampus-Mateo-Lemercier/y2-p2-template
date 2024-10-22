@@ -22,6 +22,8 @@ int main()
     std::cout << "Sorted by Weight Reversed " << inventory << std::endl;
     inventory.FilterItems( []( const Item* const pItem ){ return pItem->GetWeight() > 10.0f; } );
     std::cout << "Filtered by Weight above 10kg " << inventory << std::endl;
+    inventory.FilterItems( []( const Item* const pItem ){ return pItem->GetWeight() < 50.0f; } );
+    std::cout << "Filtered by Weight below 50kg " << inventory << std::endl;
     inventory.ClearFilters();
     std::cout << "Filters removed " << inventory << std::endl;
     return 0;

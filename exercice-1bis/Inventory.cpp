@@ -67,7 +67,8 @@ void Inventory::SortByWeightReverse()
 void Inventory::FilterItems( const std::function<bool( const Item* pItem )>& filter )
 {
     for ( Item* const pItem: m_items )
-        pItem->m_visible = filter( pItem );
+        if ( filter( pItem ) == false )
+            pItem->m_visible = false;
 }
 
 void Inventory::ClearFilters()
