@@ -55,6 +55,15 @@ void Inventory::Sort( const std::function<bool( const Item* pItem1, const Item* 
 
 
 
+int Inventory::GetNumberOfMatchingItems() const
+{
+    int result = 0;
+    for ( const Item* const pItem: m_items )
+        if ( pItem->m_visible )
+            result++;
+    return result;
+}
+
 int Inventory::GetNumberOfMatchingItems( const std::function<bool( const Item* pItem )>& filter ) const
 {
     int result = 0;

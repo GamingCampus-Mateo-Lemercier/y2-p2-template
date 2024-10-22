@@ -19,6 +19,7 @@ public:
 
     void Sort( const std::function<bool( const Item* pItem1, const Item* pItem2 )>& filter );
 
+    [[nodiscard]] int GetNumberOfMatchingItems() const;
     [[nodiscard]] int GetNumberOfMatchingItems( const std::function<bool( const Item* pItem )>& filter ) const;
     void FilterItems( const std::function<bool( const Item* pItem )>& filter );
     void ClearFilters();

@@ -23,8 +23,10 @@ int main()
     inventory.FilterItems( []( const Item* const pItem ){ return pItem->GetWeight() > 10.0f; } );
     std::cout << "Filtered by Weight above 10kg " << inventory << std::endl;
     inventory.FilterItems( []( const Item* const pItem ){ return pItem->GetWeight() < 50.0f; } );
-    std::cout << "Filtered by Weight below 50kg " << inventory << std::endl;
+    std::cout << "Filtered again by Weight below 50kg " << inventory << std::endl;
+    std::cout << "Number of matching items : " << inventory.GetNumberOfMatchingItems() << '\n' << std::endl;
     inventory.ClearFilters();
     std::cout << "Filters removed " << inventory << std::endl;
+    std::cout << "Number of Items with \'o\' as second letter : " << inventory.GetNumberOfMatchingItems( []( const Item* const pItem){ return pItem->GetName()[1] == 'o'; }) << '\n' << std::endl;
     return 0;
 }
