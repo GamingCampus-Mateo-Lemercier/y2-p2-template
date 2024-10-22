@@ -25,6 +25,9 @@ public:
     void FilterItems( const std::function<bool( const Item* pItem )>& filter );
     void ClearFilters();
 
+    [[nodiscard]] float GetTotalWeight() const;
+    [[nodiscard]] float GetAverageWeight() const;
+
     void PrintItem( const char* name );
 
 protected:

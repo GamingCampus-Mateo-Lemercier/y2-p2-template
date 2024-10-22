@@ -78,6 +78,18 @@ void Inventory::ClearFilters()
 
 
 
+float Inventory::GetTotalWeight() const
+{
+    return m_totalWeight; 
+}
+
+float Inventory::GetAverageWeight() const
+{
+    return m_totalWeight / static_cast<float>(m_items.size());
+}
+
+
+
 void Inventory::PrintItem( const char* const name )
 {
     const Item* const pItem = *FindItem( name );
