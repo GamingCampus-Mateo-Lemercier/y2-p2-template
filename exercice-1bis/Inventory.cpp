@@ -9,7 +9,7 @@ std::ostream& operator<<( std::ostream& os, const Inventory& inventory )
 {
     os << "Inventory (totalWeight = " << inventory.m_totalWeight << "):\n";
     for ( const Item* pItem: inventory.m_items )
-        os << "name = \"" << pItem->m_name << "\" and weight = " << pItem->m_weight << "kg\n";
+        os << *pItem;
     return os;
 }
 

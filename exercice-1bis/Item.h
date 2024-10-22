@@ -8,6 +8,7 @@ class Item
 {
 friend class Inventory;
 friend std::ostream& operator<<( std::ostream& os, const Inventory& inventory );
+friend std::ostream& operator<<( std::ostream& os, const Item& item );
 
 public:
     explicit Item( const std::string& name, float weight );
