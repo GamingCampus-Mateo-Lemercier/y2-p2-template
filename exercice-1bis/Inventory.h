@@ -22,6 +22,7 @@ public:
     void SortByWeight();
     void SortByWeightReverse();
 
+    [[nodiscard]] int GetNumberOfMatchingItems( const std::function<bool( const Item* pItem )>& filter ) const;
     void FilterItems( const std::function<bool( const Item* pItem )>& filter );
     void ClearFilters();
 
