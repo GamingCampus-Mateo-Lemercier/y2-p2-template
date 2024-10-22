@@ -9,10 +9,10 @@ std::ostream& operator<<( std::ostream& os, const Inventory& inventory )
 {
     os << "Inventory (totalWeight = " << inventory.m_totalWeight << "):\n";
     for ( const Item* pItem: inventory.m_items )
-        os << *pItem;
+        if ( pItem->m_visible )
+            os << *pItem;
     return os;
 }
-
 
 
 
@@ -64,13 +64,25 @@ void Inventory::SortByWeightReverse()
 
 
 
-void Inventory::PrintItem( const char* const name )
+void Inventory::FilterItems( const std::function<bool( const Item* pItem )>& filter )
 {
-    const Item* const pItem = *FindItem( name );
-    std::cout << "name = " << pItem->m_name << " and weight = " << pItem->m_weight << "kg\n"; 
+    for ( Item* const pItem: m_items )
+        pItem->m_visible = filter( pItem );
+}
+
+void Inventory::ClearFilters()
+{
+    for ( Item* const pItem: m_items )
+        pItem->m_visible = true;
 }
 
 
+
+void Inventory::PrintItem( const char* const name )
+{
+    const Item* const pItem = *FindItem( name );
+    std::cout << *pItem << std::endl; 
+}
 
 
 

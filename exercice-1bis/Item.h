@@ -17,4 +17,5 @@ public:
 protected:
     std::string m_name;
     float m_weight;
+    bool m_visible;
 };

@@ -12,7 +12,8 @@ std::ostream& operator<<( std::ostream& os, const Item& item )
 
 Item::Item( const std::string& name, const float weight ):
     m_name( name ),
-    m_weight( weight )
+    m_weight( weight ),
+    m_visible( true )
 {}
 
 Item::~Item() = default;

@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include <ostream>
 #include <vector>
 
@@ -20,6 +21,9 @@ public:
     void SortByNameReverse();
     void SortByWeight();
     void SortByWeightReverse();
+
+    void FilterItems( const std::function<bool( const Item* pItem )>& filter );
+    void ClearFilters();
 
     void PrintItem( const char* name );
 
