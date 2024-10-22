@@ -14,6 +14,9 @@ public:
     explicit Item( const std::string& name, float weight );
     ~Item();
 
+    [[nodiscard]] const std::string& GetName() const;
+    [[nodiscard]] float GetWeight() const;
+
 protected:
     std::string m_name;
     float m_weight;

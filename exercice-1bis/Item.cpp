@@ -17,3 +17,15 @@ Item::Item( const std::string& name, const float weight ):
 {}
 
 Item::~Item() = default;
+
+
+
+const std::string& Item::GetName() const
+{
+    return m_name;
+}
+
+float Item::GetWeight() const
+{
+    return m_weight;
+}
